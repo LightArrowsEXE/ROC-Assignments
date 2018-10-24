@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>Table 13
+        <style>
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+                text-align: left;
+                padding: 3px;
+            }
+        </style>
+    </head>
+    <body>
+        <table style="width:30%" border="2">
+        <tr>
+            <th colspan="10">Print Report</th>
+        </tr>
+        <tr>
+            <th>SI.No</th>
+            <th>Column1</th>
+            <th>Column2</th>
+            <th>100</th>
+            <th>500</th>
+            <th>200</th>
+            <th>600</th>
+            <th>300</th>
+            <th>400</th>
+            <th>Total</th>
+        </tr>
+        <tr>
+            <td align="right">1</td>
+            <td align="center" rowspan="3">A</td>
+            <td>bar</td>
+            <td align="right">0</td>
+            <td align="right">0</td>
+            <td align="right">1</td>
+            <td align="right">0</td>
+            <td align="right">1</td>
+            <td align="right">0</td>
+            <td align="right">2</td>
+        </tr>
+        <tr>
+            <td align="right">2</td>
+            <td>baz</td>
+            <td align="right">0</td>
+            <td align="right">0</td>
+            <td align="right">0</td>
+            <td align="right">0</td>
+            <td align="right">1</td>
+            <td align="right">0</td>
+            <td align="right">1</td>
+        </tr>
+        <tr>
+            <td align="right">3</td>
+            <td>foo</td>
+            <td align="right">3</td>
+            <td align="right">0</td>
+            <td align="right">1</td>
+            <td align="right">0</td>
+            <td align="right">0</td>
+            <td align="right">0</td>
+            <td align="right">4</td>
+        </tr>
+        <tr>
+            <td colspan="3" align="right">A Total</td>
+            <td align="right">3</td>
+            <td align="right">0</td>
+            <td align="right">2</td>
+            <td align="right">0</td>
+            <td align="right">2</td>
+            <td align="right">0</td>
+            <td align="right">7</td>
+        </tr>
+            <td aligh="right">4</td>
+            <td align="center" rowspan="3">B</td>
+            <td>baz</td>
+            <td align="right">0</td>
+            <td align="right">0</td>
+            <td align="right">1</td>
+            <td align="right">0</td>
+            <td align="right">0</td>
+            <td align="right">0</td>
+            <td align="right">1</td>
+        <tr>
+        <tr>
+            <td align="right">5</td>
+            <td>cad</td>
+            <td align="right">1</td>
+            <td align="right">0</td>
+            <td align="right">0</td>
+            <td align="right">0</td>
+            <td align="right">1</td>
+            <td align="right">1</td>
+            <td align="right">3</td>
+        </tr>
+        <tr>
+            <td align="right">6</td>
+            <td>qud</td>
+            <td align="right">1</td>
+            <td align="right">0</td>
+            <td align="right">1</td>
+            <td align="right">0</td>
+            <td align="right">1</td>
+            <td align="right">2</td>
+            <td align="right">5</td>
+        </tr>
+        <tr>
+            <td align="right" colspan="3">B Total</td>
+            <td align="right">2</td>
+            <td align="right">0</td>
+            <td align="right">2</td>
+            <td align="right">0</td>
+            <td align="right">2</td>
+            <td align="right">3</td>
+            <td align="right">9</td>
+        </tr>
+        <tr>
+            <td colspan="3">Grand Total:</td>
+            <td align="right">5</td>
+            <td align="right">0</td>
+            <td align="right">4</td>
+            <td align="right">0</td>
+            <td align="right">4</td>
+            <td align="right">3</td>
+            <td align="right">16</td>
+        </tr>
+        </table>
+        
+</br>Note: I do not know why it doesn't keep going at L98. L75 clearly indicates that the cell should have a 3-row height.
+</br>    
+</br>It also appears that 'align="right"' (and 'center') does not actually work. Not sure if I'm using HTML5, which breaks it, but </br>I do not know how to give different rows a different alignment either if it just won't work. Advice would be appreciated.
+    </body>
+</html>
