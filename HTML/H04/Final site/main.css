@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+.content{
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    grid-auto-rows: minmax(50px, auto);
+    max-width: 960px;
+    margin: 0 auto;
+    grid: 
+        "header header"
+        "pic pic"
+        "article table"
+        "footer footer"
+}
+
+header{
+    grid-area: header;
+    grid-row: 1;
+}
+
+.pic {
+    grid-area: pic;
+    margin-bottom: 20px
+}
+
+.article {
+    grid-area: article;
+    height: 300px;
+}
+
+.table {
+    grid-area: table;
+    height: 300;
+}
+
+body {
+    max-width: 960px;
+    background-color: white;
+    font-family: Lato;
+}
+
+
+/* Nav styling*/
+
+.navBar{
+    background-color: black;
+    margin-top: 20px;
+    padding: 10px;
+    color: white;
+    word-spacing: 2px;
+}
+
+a.navLink:link{
+    text-decoration: none;
+}
+
+a.navLink:visited{
+    text-decoration: none;
+    color: white;
+}
+
+
+/* Main and Table positioning */
+
+main{
+    float: left;
+}
+
+table{
+    float: right;
+}
+
+/* Tables */
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 15px;
+    padding-left: 25px;
+    padding-right: 25px;
+    margin: 10px;
+    font-style: bold;
+}
+
+.tdBlue{
+    background-color: skyblue;
+}
+
+.tdGreen{
+    background-color: palegreen;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+}
