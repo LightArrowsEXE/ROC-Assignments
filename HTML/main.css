@@ -2,26 +2,27 @@
 
 @font-face {
     font-family: "CoreSans65Bold";
-    src: url("fonts/CoreSansA65Bold.otf");
+    src: url("../fonts/CoreSansA65Bold.otf");
     }
 
 body{
-    background-image: url(img/bg_chloe.png)
+    background-image: url(../img/bg_chloe.png)
 }
 
 #content{
     display: grid;
-    grid-template-columns: repeat(3, 33.3%);
+    grid-template-columns: repeat(1, 100%);
     grid-auto-rows: minmax(0px, auto);
     max-width: 1600px;
     margin: 0 auto;
     font-family: CoreSans65Bold;
+    border-radius: 25px;
     grid-template-areas:
-    "header header header"
-    "nav nav nav"
-    "main main main"
-    "section section section"
-    "footer footer footer";
+    "header"
+    "nav"
+    "main"
+    "main"
+    "footer";
 }
 #content > *{
     padding: 10px;
@@ -38,23 +39,29 @@ main{
     background-color: palevioletred;
 }
 
-/* Coloring the background for every section */
-
-.Java{
-    background-color: rgba(250, 205, 7, 0.897);
-    text-align: center;
+a.mainRepo:hover{
+    text-decoration: none;
+    text-shadow: 3px 3px violet;
 }
+
+a.mainRepo:visited{
+    text-decoration: none;
+}
+
+a.mainRepo:hover{
+    text-decoration: none;
+}
+
+a.mainRepo:active{
+    text-decoration: none;
+}
+
+/* Coloring the background for every section */
 
 .HTML{
     background-color: rgb(21, 102, 223);
     text-align: center;
 }
-
-.SQL{
-    background-color: rgba(248, 61, 36, 0.952);
-    text-align: center; 
-}
-
 
 /* Titles for top row */
 .title{
@@ -84,35 +91,17 @@ a.mainRepo:active{
 }
 
 
-.titleJava{
-    text-shadow: 2px 2px orange;
-}
-
 .titleHTML{
     text-shadow: 2px 2px blue;
-}
-
-.titleSQL{
-    text-shadow: 2px 2px red;
 }
 
 a.title:link{
     text-decoration: none;
 }
 
-a.titleJava:hover{
-    text-decoration: none;
-    text-shadow: 3px 3px rgb(218, 126, 5);
-}
-
 a.titleHTML:hover{
     text-decoration: none;
     text-shadow: 3.5px 3.5px rgb(4, 4, 219); /* Slightly higher because it's hard to spot otherwise */
-}
-
-a.titleSQL:hover{
-    text-decoration: none;
-    text-shadow: 3px 3px rgb(190, 3, 3);
 }
 
 a.title:visited{
@@ -125,47 +114,6 @@ a.title:hover{
 
 a.title:active{
     text-decoration: none;
-}
-
-
-/* Challenge Link */
-
-.challenge{
-    grid-area: header;
-    font-family: CoreSans65Bold;
-    color: white;
-}
-
-a.challenge:link{
-    text-decoration: none;
-}
-
-a.challenge:visited{
-    text-decoration: none;
-}
-
-a.challenge:hover{
-    text-decoration: none;
-}
-
-a.challengeJava:hover{
-    text-decoration: none;
-    text-shadow: 2px 2px rgb(218, 126, 5);
-}
-
-a.challengeHTML:hover{
-    text-decoration: none;
-    text-shadow: 2px 2px rgb(4, 4, 219); /* Slightly higher because it's hard to spot otherwise */
-}
-
-a.challengeSQL:hover{
-    text-decoration: none;
-    text-shadow: 2px 2px rgb(190, 3, 3);
-}
-
-a.challengeEnvironment:hover{
-    text-decoration: none;
-    text-shadow: 2px 2px black;
 }
 
 
@@ -184,14 +132,8 @@ a.assign:visited{
     text-decoration: none;
 }
 
-
 a.assign:hover{
     text-decoration: none;
-}
-
-a.assignJava:hover{
-    text-decoration: none;
-    text-shadow: 2px 2px rgb(218, 126, 5);
 }
 
 a.assignHTML:hover{
@@ -199,13 +141,35 @@ a.assignHTML:hover{
     text-shadow: 2px 2px rgb(4, 4, 219); /* Slightly higher because it's hard to spot otherwise */
 }
 
-a.assignSQL:hover{
-    text-decoration: none;
-    text-shadow: 2px 2px rgb(190, 3, 3);
-}
-
-
 a.assignEnvironment:hover{
     text-decoration: none;
     text-shadow: 2px 2px black;
+}
+
+/* Go Back Link */
+
+.goBack{
+    grid-area: nav;
+    align-self: center;
+    font-size: 16px;
+    line-height: 28px;
+    vertical-align: middle;
+    color: white;
+}
+
+a.goBack:link{
+    text-decoration: none;
+}
+
+a.goBack:hover{
+    text-decoration: none;
+    text-shadow: 3px 3px violet;
+}
+
+a.goBack:visited{
+    text-decoration: none;
+}
+
+a.goBack:active{
+    text-decoration: none;
 }
