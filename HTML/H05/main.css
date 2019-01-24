@@ -1,0 +1,81 @@
+body{
+    background-color: rgb(255, 233, 235);
+}
+
+.content{
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    grid-auto-rows: minmax(0px, auto);
+    max-width: 1200px;
+    margin: 0 auto;
+    grid-template-areas:
+    "header header"
+    "nav nav"
+    "pic1 pic2"
+    "main main"
+    "article article";
+}
+
+.headerLogo{
+    grid-area: header;
+    grid-row: 1;
+    padding: 5px;
+}
+
+.navBar{
+    grid-area: nav;
+    grid-row: 2;
+    padding: 15px;
+    font-size: 18px;
+}
+
+span + span {
+    margin-left: 15px;
+}
+
+.pic1{
+    grid-area: pic1;
+    justify-items: center;
+    align-items: center;
+    float: right;
+    padding: 15px;
+}
+.pic2{
+    grid-area: pic2;
+    justify-items: center;
+    align-items: center;
+    float: left;
+    padding: 15px;
+}
+
+.pic-right{
+    align-content: space-evenly;
+}
+
+.pic-right-top{
+    padding-bottom: 10px;
+}
+
+.pic-right-bot{
+    padding-top: 10px;
+}
+
+.body-text{
+    grid-area: main;
+    grid-auto-rows: 1000px;
+    column-count: 3;
+    column-gap: 10px;
+}
+
+.football-pic{
+    padding: 1px;
+    margin: 2em;
+}
+
+.body-title{
+    grid-area: main;
+}
+
+.body-text{
+    grid-area: article;
+}
