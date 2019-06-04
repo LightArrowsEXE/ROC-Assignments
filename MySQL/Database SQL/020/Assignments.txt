@@ -1,0 +1,151 @@
+# Assignment 3 - 01:
+
+mysql> SELECT studentnr, roepnaam, tussenvoegsels, achternaam, adres, postcode, woonplaats FROM student;
++-----------+-----------+----------------+------------+-----------------+----------+------------+
+| studentnr | roepnaam  | tussenvoegsels | achternaam | adres           | postcode | woonplaats |
++-----------+-----------+----------------+------------+-----------------+----------+------------+
+| 1111      | Piet      | NULL           | Pietersen  | Pietstraat 2    | 1111 PP  | Almere     |
+| 2222      | Jan       | NULL           | Jansen     | Janstraat 34    | 2222 JJ  | Almere     |
+| 3333      | Willem    | NULL           | Willemsen  | Willemstraat 45 | 3333 WW  | Almere     |
+| 4444      | Berend    | van der        | Tol        | Tolweg 10       | 4444 WE  | Lelystad   |
+| 5555      | Cynthia   | de             | Bruin      | Almerestraat 10 | 1553 CW  | Zeewolde   |
+| 6666      | Angelique | de             | Hoed       | Hoedenstraat 12 | 1663 LW  | Lelystad   |
++-----------+-----------+----------------+------------+-----------------+----------+------------+
+6 rows in set (0.00 sec)
+
+
+# Assignment 3 - 02:
+
+mysql> SELECT voorletters, tussenvoegsels, achternaam
+    -> FROM student
+    -> WHERE woonplaats = 'Lelystad';
++-------------+----------------+------------+
+| voorletters | tussenvoegsels | achternaam |
++-------------+----------------+------------+
+| W.          | van der        | Tol        |
+| A.          | de             | Hoed       |
++-------------+----------------+------------+
+2 rows in set (0.00 sec)
+
+
+# Assignment 3 - 03:
+
+mysql> SELECT voorletters, tussenvoegsels, achternaam
+    -> FROM student
+    -> WHERE woonplaats <> 'Lelystad';
++-------------+----------------+------------+
+| voorletters | tussenvoegsels | achternaam |
++-------------+----------------+------------+
+| P.          | NULL           | Pietersen  |
+| J.          | NULL           | Jansen     |
+| W.          | NULL           | Willemsen  |
+| C.          | de             | Bruin      |
++-------------+----------------+------------+
+4 rows in set (0.00 sec)
+
+
+# Assignment 3 - 04:
+
+mysql> SELECT voorletters, tussenvoegsels, achternaam
+    -> FROM student
+    -> WHERE geslacht = 'F';
++-------------+----------------+------------+
+| voorletters | tussenvoegsels | achternaam |
++-------------+----------------+------------+
+| C.          | de             | Bruin      |
+| A.          | de             | Hoed       |
++-------------+----------------+------------+
+2 rows in set (0.00 sec)
+
+
+# Assignment 3 - 05:
+
+mysql> SELECT voorletters, tussenvoegsels, achternaam
+    -> FROM student
+    -> WHERE geslacht <> 'M';
++-------------+----------------+------------+
+| voorletters | tussenvoegsels | achternaam |
++-------------+----------------+------------+
+| C.          | de             | Bruin      |
+| A.          | de             | Hoed       |
++-------------+----------------+------------+
+2 rows in set (0.00 sec)
+
+
+# Assignment 3 - 06:
+
+mysql> SELECT voorletters, tussenvoegsels, achternaam
+    -> FROM student
+    -> WHERE geslacht IS NULL;
++-------------+----------------+------------+
+| voorletters | tussenvoegsels | achternaam |
++-------------+----------------+------------+
+| W.          | NULL           | Willemsen  |
++-------------+----------------+------------+
+1 row in set (0.00 sec)
+
+
+# Assignment 3 - 07:
+
+mysql> SELECT voorletters, tussenvoegsels, achternaam
+    -> FROM student
+    -> WHERE woonplaats = 'Lelystad' AND geslacht = 'F';
++-------------+----------------+------------+
+| voorletters | tussenvoegsels | achternaam |
++-------------+----------------+------------+
+| A.          | de             | Hoed       |
++-------------+----------------+------------+
+1 row in set (0.00 sec)
+
+
+# Assignment 3 - 08:
+
+mysql> SELECT voorletters, tussenvoegsels, achternaam
+    -> FROM student
+    -> WHERE woonplaats = 'Lelystad' OR woonplaats = 'Almere';
++-------------+----------------+------------+
+| voorletters | tussenvoegsels | achternaam |
++-------------+----------------+------------+
+| P.          | NULL           | Pietersen  |
+| J.          | NULL           | Jansen     |
+| W.          | NULL           | Willemsen  |
+| W.          | van der        | Tol        |
+| A.          | de             | Hoed       |
++-------------+----------------+------------+
+5 rows in set (0.00 sec)
+
+
+# Assignment 3 - 09:
+
+mysql> SELECT voorletters, tussenvoegsels, achternaam, woonplaats
+    -> FROM student
+    -> ORDER BY woonplaats;
++-------------+----------------+------------+------------+
+| voorletters | tussenvoegsels | achternaam | woonplaats |
++-------------+----------------+------------+------------+
+| P.          | NULL           | Pietersen  | Almere     |
+| J.          | NULL           | Jansen     | Almere     |
+| W.          | NULL           | Willemsen  | Almere     |
+| W.          | van der        | Tol        | Lelystad   |
+| A.          | de             | Hoed       | Lelystad   |
+| C.          | de             | Bruin      | Zeewolde   |
++-------------+----------------+------------+------------+
+6 rows in set (0.00 sec)
+
+
+# Assignement 3 - 10:
+
+mysql> SELECT voorletters, tussenvoegsels, achternaam, woonplaats
+    -> FROM student
+    -> ORDER BY woonplaats DESC;
++-------------+----------------+------------+------------+
+| voorletters | tussenvoegsels | achternaam | woonplaats |
++-------------+----------------+------------+------------+
+| C.          | de             | Bruin      | Zeewolde   |
+| W.          | van der        | Tol        | Lelystad   |
+| A.          | de             | Hoed       | Lelystad   |
+| P.          | NULL           | Pietersen  | Almere     |
+| J.          | NULL           | Jansen     | Almere     |
+| W.          | NULL           | Willemsen  | Almere     |
++-------------+----------------+------------+------------+
+6 rows in set (0.00 sec)
