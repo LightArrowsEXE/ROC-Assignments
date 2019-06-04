@@ -1,0 +1,21 @@
+Commands used (run in popsql):
+
+
+CREATE TABLE main (
+initials VARCHAR(15),
+insertion VARCHAR(15),
+last_name VARCHAR(30),
+phonenumber VARCHAR(11)
+);
+
+
+INSERT INTO main(initials, insertion, last_name, phonenumber)
+VALUES
+    ('J.', NULL, 'Jansen', '036-3568912'),
+    ('F.', 'van', 'Bosch', '06-98653214'),
+    ('M.', NULL,  'Mathijsen', '0320-827364'),
+    ('M. H. ', NULL, 'Abdelkader', '06-19283765'),
+    ('T.', NULL, 'Mobile', '06-61278394'),
+    ('W.', 'uit de', 'Woning', '0320-445566');
+    
+SELECT * FROM main;
