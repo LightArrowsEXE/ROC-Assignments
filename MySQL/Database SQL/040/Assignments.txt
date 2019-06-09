@@ -1,0 +1,146 @@
+Assignment 7 - 01:
+
+mysql> INSERT INTO student(studentnr, roepnaam, voorletters, tussenvoegsels, achternaam, adres, postcode,woonplaats, geslacht, telefoon, geboortedatum, schoolgeld, betaald)
+    -> VALUES('2121', 'Ton', 'A.', 'van', 'Zetten', 'Revestraat 44', '2121 VR', 'Almere', 'm', '036-7654321', '1995-12-2', 500, 500);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT * FROM student
+    -> WHERE roepnaam = 'Ton';
++-----------+----------+-------------+----------------+------------+---------------+----------+------------+----------+-------------+---------------+---------------+------------+---------+
+| studentnr | roepnaam | voorletters | tussenvoegsels | achternaam | adres         | postcode | woonplaats | geslacht | telefoon    | geboortedatum | uitgeschreven | schoolgeld | betaald |
++-----------+----------+-------------+----------------+------------+---------------+----------+------------+----------+-------------+---------------+---------------+------------+---------+
+| 2121      | Ton      | A.          | van            | Zetten     | Revestraat 44 | 2121 VR  | Almere     | m        | 036-7654321 | 1995-12-02    | NULL          |     500.00 |  500.00 |
++-----------+----------+-------------+----------------+------------+---------------+----------+------------+----------+-------------+---------------+---------------+------------+---------+
+1 row in set (0.00 sec)
+
+
+Assignment 7 - 02:
+
+mysql> ALTER TABLE student
+    -> MODIFY roepnaam VARCHAR(12);
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> INSERT INTO student(studentnr, roepnaam, voorletters, tussenvoegsels, achternaam, adres, postcode,woonplaats, geslacht, telefoon, geboortedatum, schoolgeld, betaald)
+    -> VALUES(1313, 'Janneke', 'J.', NULL, 'Simonsen', 'Revestraat 2', '2222 VR', 'Almere', 'v', '036-5467890', '1995-10-4', 500, 200),
+    -> (3232, 'Annemarieke', 'A.', 'de', 'Groot', 'Janstraat 33', '1533 JJ', 'Zeewolde', 'v', '036-8912765', '1995-10-3', 500, 500);
+Query OK, 2 rows affected (0.00 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+
+Assignment 7 - 03:
+
+mysql> UPDATE student
+    -> SET adres = 'Lotstraat 5', postcode = '4455 BT'
+    -> WHERE studentnr = '4444';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+
+Assignment 7 - 04:
+
+mysql> SELECT studentnr, schoolgeld, betaald
+    -> FROM student
+    -> WHERE achternaam = 'Bruin' AND schoolgeld - betaald <> 0;
++-----------+------------+---------+
+| studentnr | schoolgeld | betaald |
++-----------+------------+---------+
+| 5555      |     500.00 |  300.00 |
++-----------+------------+---------+
+1 row in set (0.00 sec)
+
+mysql> UPDATE student
+    -> SET betaald = schoolgeld
+    -> WHERE studentnr = '5555';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+
+Assignment 7 - 05:
+
+mysql> SELECT studentnr
+    -> FROM student
+    -> WHERE achternaam = 'Groot' AND woonplaats = 'Zeewolde';
++-----------+
+| studentnr |
++-----------+
+| 3232      |
++-----------+
+1 row in set (0.00 sec)
+
+mysql> UPDATE student
+    -> SET adres = 'Januaristraat 15', postcode = '1335 RT', woonplaats = 'Almere'
+    -> WHERE studentnr = '3232';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+
+Assignment 7 - 08:
+
+mysql> SELECT schoolgeld - betaald
+    -> FROM student
+    -> WHERE achternaam = 'Tol';
++----------------------+
+| schoolgeld - betaald |
++----------------------+
+|               500.00 |
++----------------------+
+1 row in set (0.00 sec)
+
+
+Assignment 7 - 07:
+
+mysql> SELECT voorletters, tussenvoegsels, achternaam
+    -> FROM student
+    -> WHERE uitgeschreven;
+Empty set (0.00 sec)
+
+
+Assignment 7 - 08:
+
+mysql> UPDATE student
+    -> SET uitgeschreven = '2015-9-6'
+    -> WHERE studentnr = '4444';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT voorletters, tussenvoegsels, achternaam
+    -> FROM student
+    -> WHERE uitgeschreven;
++-------------+----------------+------------+
+| voorletters | tussenvoegsels | achternaam |
++-------------+----------------+------------+
+| W.          | van der        | Tol        |
++-------------+----------------+------------+
+1 row in set (0.00 sec)
+
+
+Assignment 7 - 09:
+
+mysql> SELECT studentnr
+    -> FROM student
+    -> WHERE achternaam = 'Jansen';
++-----------+
+| studentnr |
++-----------+
+| 2222      |
++-----------+
+1 row in set (0.00 sec)
+
+mysql> UPDATE student
+    -> SET uitgeschreven = '2019-6-9'
+    -> WHERE studentnr = '2222';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT voorletters, tussenvoegsels, achternaam
+    -> FROM student
+    -> WHERE uitgeschreven;
++-------------+----------------+------------+
+| voorletters | tussenvoegsels | achternaam |
++-------------+----------------+------------+
+| J.          | NULL           | Jansen     |
+| W.          | van der        | Tol        |
++-------------+----------------+------------+
+2 rows in set (0.00 sec)
+
