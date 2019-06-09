@@ -1,0 +1,162 @@
+# Assignment 4 - 01:
+
+mysql> SELECT voorletters, tussenvoegsels, achternaam
+    -> FROM student
+    -> WHERE geboortedatum BETWEEN '1990-01-01' AND '1995-12-31' OR geboortedatum BETWEEN '1997-01-01' AND '2000-12-31';
++-------------+----------------+------------+
+| voorletters | tussenvoegsels | achternaam |
++-------------+----------------+------------+
+| P.          | NULL           | Pietersen  |
+| J.          | NULL           | Jansen     |
+| W.          | van der        | Tol        |
+| A.          | de             | Hoed       |
++-------------+----------------+------------+
+4 rows in set (0.00 sec)
+
+
+# Assignment 4 - 02:
+
+mysql> SELECT voorletters, tussenvoegsels, achternaam
+    -> FROM student
+    -> WHERE achternaam LIKE '%n';
++-------------+----------------+------------+
+| voorletters | tussenvoegsels | achternaam |
++-------------+----------------+------------+
+| P.          | NULL           | Pietersen  |
+| J.          | NULL           | Jansen     |
+| W.          | NULL           | Willemsen  |
+| C.          | de             | Bruin      |
++-------------+----------------+------------+
+4 rows in set (0.00 sec)
+
+
+# Assignment 4 - 03:
+
+mysql> SELECT voorletters, tussenvoegsels, achternaam
+    -> FROM student
+    -> WHERE achternaam LIKE '%i%';
++-------------+----------------+------------+
+| voorletters | tussenvoegsels | achternaam |
++-------------+----------------+------------+
+| P.          | NULL           | Pietersen  |
+| W.          | NULL           | Willemsen  |
+| C.          | de             | Bruin      |
++-------------+----------------+------------+
+3 rows in set (0.00 sec)
+
+
+# Assignment 4 - 04:
+
+mysql> SELECT voorletters, tussenvoegsels, achternaam
+    -> FROM student
+    -> WHERE telefoon IS NOT NULL;
++-------------+----------------+------------+
+| voorletters | tussenvoegsels | achternaam |
++-------------+----------------+------------+
+| P.          | NULL           | Pietersen  |
+| J.          | NULL           | Jansen     |
+| C.          | de             | Bruin      |
+| A.          | de             | Hoed       |
++-------------+----------------+------------+
+4 rows in set (0.00 sec)
+
+
+# Assignment 4 - 05:
+
+mysql> SELECT voorletters, tussenvoegsels, achternaam
+    -> FROM student
+    -> WHERE achternaam LIKE '_i%';
++-------------+----------------+------------+
+| voorletters | tussenvoegsels | achternaam |
++-------------+----------------+------------+
+| P.          | NULL           | Pietersen  |
+| W.          | NULL           | Willemsen  |
++-------------+----------------+------------+
+2 rows in set (0.00 sec)
+
+
+# Assignment 4 - 06:
+
+mysql> SELECT voorletters, tussenvoegsels, achternaam
+    -> FROM student
+    -> WHERE woonplaats NOT LIKE 'A%';
++-------------+----------------+------------+
+| voorletters | tussenvoegsels | achternaam |
++-------------+----------------+------------+
+| W.          | van der        | Tol        |
+| C.          | de             | Bruin      |
+| A.          | de             | Hoed       |
++-------------+----------------+------------+
+3 rows in set (0.00 sec)
+
+
+# Assignment 4 - 07:
+
+mysql> SELECT voorletters, tussenvoegsels, achternaam
+    -> FROM student
+    -> WHERE achternaam LIKE '______';
++-------------+----------------+------------+
+| voorletters | tussenvoegsels | achternaam |
++-------------+----------------+------------+
+| J.          | NULL           | Jansen     |
++-------------+----------------+------------+
+1 row in set (0.00 sec)
+
+
+# Assignment 4 - 08:
+
+mysql> SELECT voorletters, tussenvoegsels, achternaam
+    -> FROM student
+    -> WHERE achternaam LIKE '_____%';
++-------------+----------------+------------+
+| voorletters | tussenvoegsels | achternaam |
++-------------+----------------+------------+
+| P.          | NULL           | Pietersen  |
+| J.          | NULL           | Jansen     |
+| W.          | NULL           | Willemsen  |
+| C.          | de             | Bruin      |
++-------------+----------------+------------+
+4 rows in set (0.00 sec)
+
+
+# Assignment 4 - 09:
+
+mysql> SELECT voorletters, tussenvoegsels, achternaam
+    -> FROM student
+    -> WHERE LENGTH(achternaam) <= 4;
++-------------+----------------+------------+
+| voorletters | tussenvoegsels | achternaam |
++-------------+----------------+------------+
+| W.          | van der        | Tol        |
+| A.          | de             | Hoed       |
++-------------+----------------+------------+
+2 rows in set (0.00 sec)
+
+
+# Assignment 4 - 10:
+
+mysql> SELECT voorletters, tussenvoegsels, achternaam
+    -> FROM student
+    -> WHERE telefoon IS NULL;
++-------------+----------------+------------+
+| voorletters | tussenvoegsels | achternaam |
++-------------+----------------+------------+
+| W.          | NULL           | Willemsen  |
+| W.          | van der        | Tol        |
++-------------+----------------+------------+
+2 rows in set (0.00 sec)
+
+
+# Assignment 4 - 11:
+
+mysql> SELECT voorletters, tussenvoegsels, achternaam
+    -> FROM student
+    -> WHERE telefoon IS NULL;
++-------------+----------------+------------+
+| voorletters | tussenvoegsels | achternaam |
++-------------+----------------+------------+
+| W.          | NULL           | Willemsen  |
+| W.          | van der        | Tol        |
++-------------+----------------+------------+
+2 rows in set (0.00 sec)
+
