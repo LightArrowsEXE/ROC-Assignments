@@ -1,0 +1,139 @@
+Assignment 6 - 01:
+
+mysql> SELECT COUNT(woonplaats)
+    -> FROM student
+    -> WHERE woonplaats = 'Lelystad';
++-------------------+
+| COUNT(woonplaats) |
++-------------------+
+|                 2 |
++-------------------+
+1 row in set (0.00 sec)
+
+
+Assignment 6 - 02:
+
+mysql> SELECT voorletters, tussenvoegsels, achternaam, MIN(geboortedatum)
+    -> FROM student;
++-------------+----------------+------------+--------------------+
+| voorletters | tussenvoegsels | achternaam | MIN(geboortedatum) |
++-------------+----------------+------------+--------------------+
+| P.          | NULL           | Pietersen  | 1994-04-03         |
++-------------+----------------+------------+--------------------+
+1 row in set (0.00 sec)
+
+
+Assignment 6 - 03:
+
+mysql> SELECT SUM(betaald)
+    -> FROM student;
++--------------+
+| SUM(betaald) |
++--------------+
+|      1600.00 |
++--------------+
+1 row in set (0.00 sec)
+
+
+Assignment 6 - 04:
+
+mysql> SELECT AVG(betaald)
+    -> FROM student
+    -> WHERE schoolgeld = '500';
++--------------+
+| AVG(betaald) |
++--------------+
+|   325.000000 |
++--------------+
+1 row in set (0.00 sec)
+
+
+Assignment 6 - 05:
+
+mysql> SELECT geslacht, COUNT(*)
+    -> FROM student;
++----------+----------+
+| geslacht | COUNT(*) |
++----------+----------+
+| M        |        6 |
++----------+----------+
+1 row in set (0.00 sec)
+
+
+Assignment 6 - 06:
+
+mysql> SELECT geslacht, COUNT(*)
+    -> FROM student
+    -> WHERE woonplaats = 'Lelystad';
++----------+----------+
+| geslacht | COUNT(*) |
++----------+----------+
+| M        |        2 |
++----------+----------+
+1 row in set (0.00 sec)
+
+Assignment 6 - 07:
+
+?
+
+
+Assignment 6 - 08:
+
+mysql> SELECT woonplaats, count(*)
+    -> FROM student
+    -> GROUP BY woonplaats
+    -> HAVING COUNT(*) > 1;
++------------+----------+
+| woonplaats | count(*) |
++------------+----------+
+| Almere     |        3 |
+| Lelystad   |        2 |
++------------+----------+
+2 rows in set (0.00 sec)
+
+
+Assignment 6 - 09:
+
+mysql> SELECT woonplaats, SUM(schoolgeld - betaald)
+    -> FROM student
+    -> GROUP BY woonplaats;
++------------+---------------------------+
+| woonplaats | SUM(schoolgeld - betaald) |
++------------+---------------------------+
+| Almere     |                      0.00 |
+| Lelystad   |                    600.00 |
+| Zeewolde   |                    200.00 |
++------------+---------------------------+
+3 rows in set (0.00 sec)
+
+
+Assignment 6 - 10:
+
+mysql> SELECT woonplaats, SUM(schoolgeld - betaald)
+    -> FROM student
+    -> WHERE schoolgeld - betaald <> 0
+    -> GROUP BY woonplaats;
++------------+---------------------------+
+| woonplaats | SUM(schoolgeld - betaald) |
++------------+---------------------------+
+| Lelystad   |                    600.00 |
+| Zeewolde   |                    200.00 |
++------------+---------------------------+
+2 rows in set (0.00 sec)
+
+
+Assignment 6 - 11:
+
+mysql> SELECT woonplaats, geslacht, SUM(schoolgeld - betaald)
+    -> FROM student
+    -> WHERE schoolgeld - betaald <> 0
+    -> GROUP BY woonplaats, geslacht;
++------------+----------+---------------------------+
+| woonplaats | geslacht | SUM(schoolgeld - betaald) |
++------------+----------+---------------------------+
+| Lelystad   | M        |                    500.00 |
+| Zeewolde   | F        |                    200.00 |
+| Lelystad   | F        |                    100.00 |
++------------+----------+---------------------------+
+3 rows in set (0.00 sec)
+
