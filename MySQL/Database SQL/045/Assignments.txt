@@ -1,0 +1,96 @@
+Assignment 8 - 01:
+
+mysql> SELECT date_format(curdate(), '%d');
++------------------------------+
+| date_format(curdate(), '%d') |
++------------------------------+
+| 11                           |
++------------------------------+
+1 row in set (0.00 sec)
+
+
+Assignment 8 - 02:
+
+mysql> SELECT date_format(curdate(), '%W');
++------------------------------+
+| date_format(curdate(), '%W') |
++------------------------------+
+| Tuesday                      |
++------------------------------+
+1 row in set (0.00 sec)
+
+
+Assignment 8 - 03:
+
+mysql> SELECT date_format(curtime(), '%H');
++------------------------------+
+| date_format(curtime(), '%H') |
++------------------------------+
+| 09                           |
++------------------------------+
+1 row in set (0.00 sec)
+
+
+Assignment 8 - 04:
+
+mysql> SELECT uitgeschreven
+    -> FROM student
+    -> WHERE achternaam = 'Tol';
++---------------+
+| uitgeschreven |
++---------------+
+| 2015-09-06    |
++---------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT datediff(now(), '2015-09-06');
++-------------------------------+
+| datediff(now(), '2015-09-06') |
++-------------------------------+
+|                          1374 |
++-------------------------------+
+1 row in set (0.00 sec)
+
+
+Assignment 8 - 05:
+
+mysql> SELECT datediff('2015-09-06', '2015-8-1');
++------------------------------------+
+| datediff('2015-09-06', '2015-8-1') |
++------------------------------------+
+|                                 36 |
++------------------------------------+
+1 row in set (0.00 sec)
+
+
+Assignment 8 - 06:
+
+mysql> SELECT YEAR(CURDATE()) - YEAR(geboortedatum)
+    -> FROM student
+    -> WHERE achternaam = 'Tol';
++---------------------------------------+
+| YEAR(CURDATE()) - YEAR(geboortedatum) |
++---------------------------------------+
+|                                    25 |
++---------------------------------------+
+1 row in set (0.00 sec)
+
+
+Assignment 8 - 07:
+
+mysql> SELECT roepnaam, tussenvoegsels, achternaam
+    -> FROM student
+    -> WHERE YEAR(CURDATE()) - YEAR(geboortedatum) >= 21;
++-------------+----------------+------------+
+| roepnaam    | tussenvoegsels | achternaam |
++-------------+----------------+------------+
+| Piet        | NULL           | Pietersen  |
+| Janneke     | NULL           | Simonsen   |
+| Ton         | van            | Zetten     |
+| Jan         | NULL           | Jansen     |
+| Annemarieke | de             | Groot      |
+| Berend      | van der        | Tol        |
+| Cynthia     | de             | Bruin      |
+| Angelique   | de             | Hoed       |
++-------------+----------------+------------+
+8 rows in set (0.00 sec)
