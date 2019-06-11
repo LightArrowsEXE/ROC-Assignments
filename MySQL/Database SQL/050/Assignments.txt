@@ -1,0 +1,168 @@
+Assignment 9 - 01:
+
+mysql> INSERT INTO opleiding(opleidingscode, naam, niveau)
+    -> VALUES('AO', 'ApothekersOpleiding', '4');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO opleiding(opleidingscode, naam, niveau)
+    -> VALUES('AO', 'ApothekersOpleiding', '4');
+ERROR 1062 (23000): Duplicate entry 'AO' for key 'PRIMARY'
+
+
+Assignment 9 - 02:
+
+mysql> INSERT INTO opleiding(opleidingscode, naam, niveau)
+    -> VALUES('MBI', 'Medewerker Beheer ICT', '3');
+Query OK, 1 row affected (0.00 sec)
+
+
+Assignment 9 - 03:
+
+mysql> INSERT INTO opleiding(opleidingscode, naam, niveau)
+    -> VALUES('MV', 'MediaVormgeving', '4'),
+    -> ('DT3', 'DeskTopPublishing', '3'),
+    -> ('DT2', 'DeskTopPublishing', '2'),
+    -> ('IB', 'ICT Beheerder', '4');
+Query OK, 4 rows affected (0.01 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> SELECT *
+    -> FROM opleiding;
++----------------+-----------------------+--------+
+| opleidingscode | naam                  | niveau |
++----------------+-----------------------+--------+
+| AO             | ApothekersOpleiding   | 4      |
+| DT2            | DeskTopPublishing     | 2      |
+| DT3            | DeskTopPublishing     | 3      |
+| IB             | ICT Beheerder         | 4      |
+| MBI            | Medewerker Beheer ICT | 3      |
+| MV             | MediaVormgeving       | 4      |
++----------------+-----------------------+--------+
+6 rows in set (0.00 sec)
+
+
+Assignment 9 - 04:
+
+mysql> INSERT INTO studentopleiding(studentnr, opleidingscode, startdatum)
+    -> VALUES('1111', 'AO', '2015-8-1'),
+    -> ('2222', 'MV', '2015-8-1'),
+    -> ('3333', 'DT3', '2015-8-1'),
+    -> ('4444', 'DT2', '2015-8-1'),
+    -> ('5555', 'MBI', '2015-8-1'),
+    -> ('6666', 'IB', '2015-8-1');
+Query OK, 6 rows affected (0.15 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+mysql> SELECT *
+    -> FROM studentopleiding;
++-----------+----------------+------------+-----------+---------+
+| studentnr | opleidingscode | startdatum | einddatum | diploma |
++-----------+----------------+------------+-----------+---------+
+| 1111      | AO             | 2015-08-01 | NULL      |       0 |
+| 2222      | MV             | 2015-08-01 | NULL      |       0 |
+| 3333      | DT3            | 2015-08-01 | NULL      |       0 |
+| 4444      | DT2            | 2015-08-01 | NULL      |       0 |
+| 5555      | MBI            | 2015-08-01 | NULL      |       0 |
+| 6666      | IB             | 2015-08-01 | NULL      |       0 |
++-----------+----------------+------------+-----------+---------+
+6 rows in set (0.00 sec)
+
+
+Assignment 9 - 05:
+
+mysql> SELECT roepnaam, tussenvoegsels, achternaam, opleiding.naam
+    -> FROM student
+    -> INNER JOIN studentopleiding on studentopleiding.studentnr = student.studentnr
+    -> INNER JOIN opleiding on opleiding.opleidingscode = studentopleiding.opleidingscode
+    -> WHERE achternaam = 'Tol' and tussenvoegsels = 'van der' and roepnaam = 'Berend';
++----------+----------------+------------+-------------------+
+| roepnaam | tussenvoegsels | achternaam | naam              |
++----------+----------------+------------+-------------------+
+| Berend   | van der        | Tol        | DeskTopPublishing |
++----------+----------------+------------+-------------------+
+1 row in set (0.00 sec)
+
+
+
+Assignment 9 - 06:
+
+mysql> SELECT studentnr, roepnaam, tussenvoegsels, achternaam, opleiding.naam
+    -> FROM student
+    -> LEFT JOIN studentopleiding using(studentnr)
+    -> LEFT JOIN opleiding using (opleidingscode);
++-----------+-------------+----------------+------------+-----------------------+
+| studentnr | roepnaam    | tussenvoegsels | achternaam | naam                  |
++-----------+-------------+----------------+------------+-----------------------+
+| 1111      | Piet        | NULL           | Pietersen  | ApothekersOpleiding   |
+| 1313      | Janneke     | NULL           | Simonsen   | NULL                  |
+| 2121      | Ton         | van            | Zetten     | NULL                  |
+| 2222      | Jan         | NULL           | Jansen     | MediaVormgeving       |
+| 3232      | Annemarieke | de             | Groot      | NULL                  |
+| 3333      | Willem      | NULL           | Willemsen  | DeskTopPublishing     |
+| 4444      | Berend      | van der        | Tol        | DeskTopPublishing     |
+| 5555      | Cynthia     | de             | Bruin      | Medewerker Beheer ICT |
+| 6666      | Angelique   | de             | Hoed       | ICT Beheerder         |
++-----------+-------------+----------------+------------+-----------------------+
+9 rows in set (0.00 sec)
+
+
+Assignment 9 - 07:
+
+mysql> SELECT student.studentnr, roepnaam, tussenvoegsels, achternaam, opleiding.naam
+    -> FROM student
+    -> INNER JOIN studentopleiding on studentopleiding.studentnr = student.studentnr
+    -> INNER JOIN opleiding on opleiding.opleidingscode = studentopleiding.opleidingscode
+    -> WHERE achternaam = 'Tol' AND roepnaam = 'Berend';
++-----------+----------+----------------+------------+-------------------+
+| studentnr | roepnaam | tussenvoegsels | achternaam | naam              |
++-----------+----------+----------------+------------+-------------------+
+| 4444      | Berend   | van der        | Tol        | DeskTopPublishing |
++-----------+----------+----------------+------------+-------------------+
+1 row in set (0.00 sec)
+
+
+Assignment 9 - 08:
+
+mysql> SELECT student.studentnr, roepnaam, tussenvoegsels, achternaam, opleiding.naam
+    -> FROM student
+    -> INNER JOIN studentopleiding on studentopleiding.studentnr = student.studentnr
+    -> INNER JOIN opleiding on opleiding.opleidingscode = studentopleiding.opleidingscode
+    -> WHERE opleiding.opleidingscode = 'AO';
++-----------+----------+----------------+------------+---------------------+
+| studentnr | roepnaam | tussenvoegsels | achternaam | naam                |
++-----------+----------+----------------+------------+---------------------+
+| 1111      | Piet     | NULL           | Pietersen  | ApothekersOpleiding |
++-----------+----------+----------------+------------+---------------------+
+1 row in set (0.00 sec)
+
+
+Assignment 9 - 09:
+
+mysql> SELECT student.studentnr, roepnaam, tussenvoegsels, achternaam, opleiding.naam
+    -> FROM student
+    -> INNER JOIN studentopleiding on studentopleiding.studentnr = student.studentnr
+    -> INNER JOIN opleiding on opleiding.opleidingscode = studentopleiding.opleidingscode
+    -> WHERE niveau = 4;
++-----------+-----------+----------------+------------+---------------------+
+| studentnr | roepnaam  | tussenvoegsels | achternaam | naam                |
++-----------+-----------+----------------+------------+---------------------+
+| 1111      | Piet      | NULL           | Pietersen  | ApothekersOpleiding |
+| 6666      | Angelique | de             | Hoed       | ICT Beheerder       |
+| 2222      | Jan       | NULL           | Jansen     | MediaVormgeving     |
++-----------+-----------+----------------+------------+---------------------+
+3 rows in set (0.00 sec)
+
+
+Assignment 9 - 10:
+
+mysql> SELECT niveau, COUNT(*)
+    -> FROM opleiding
+    -> GROUP BY niveau;
++--------+----------+
+| niveau | COUNT(*) |
++--------+----------+
+| 4      |        3 |
+| 2      |        1 |
+| 3      |        2 |
++--------+----------+
+3 rows in set (0.00 sec)
